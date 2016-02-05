@@ -37,7 +37,7 @@ import org.apache.spark.streaming.api.java.*;
 import org.apache.spark.streaming.kafka.KafkaUtils;
 import org.apache.spark.streaming.Durations;
 
-public class KafkaConsumer {
+public class KafkaConsumerTest {
 
   public static void main(String[] args) {
 
