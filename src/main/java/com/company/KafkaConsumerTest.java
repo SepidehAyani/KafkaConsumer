@@ -17,22 +17,13 @@
 
 package com.company;
 
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Arrays;
-import java.util.Iterator;
-import java.util.regex.Pattern;
 
 import org.apache.commons.cli.Options;
-import scala.Tuple2;
-
-import kafka.serializer.StringDecoder;
-import kafka.consumer.ConsumerIterator;
-import kafka.consumer.KafkaStream;
-import org.apache.spark.streaming.kafka.*;
-
 import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.function.*;
 import org.apache.spark.streaming.api.java.*;
 import org.apache.spark.streaming.kafka.KafkaUtils;
 import org.apache.spark.streaming.Durations;
@@ -41,11 +32,9 @@ public class KafkaConsumerTest {
 
   public static void main(String[] args) {
 
-
     Options options = new Options();
     options.addOption("topic", true, "Reading the topic");
     options.addOption("brokerList", true, "Reading the broker list");
-
 
     StreamingExamples.setStreamingLogLevels();
 
@@ -62,6 +51,7 @@ public class KafkaConsumerTest {
 
     // Create direct kafka stream with brokers and topics
     //DStream Print
+
     JavaPairInputDStream<String, String> messages = KafkaUtils.createDirectStream(
 
             String.class,
