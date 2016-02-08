@@ -36,7 +36,7 @@ public class KafkaConsumerTest {
     options.addOption("topic", true, "Reading the topic");
     options.addOption("brokerList", true, "Reading the broker list");
 
-    StreamingExamples.setStreamingLogLevels();
+    //StreamingExamples.setStreamingLogLevels();
 
     String brokerList = args[0];
     String topic = args[1];
@@ -50,12 +50,13 @@ public class KafkaConsumerTest {
     kafkaParams.put("bootstrap.servers", brokerList);
 
     // Create direct kafka stream with brokers and topics
-    //DStream Print
 
-    JavaPairInputDStream<String, String> messages = KafkaUtils.createDirectStream(
+    JavaPairInputDStream<String, String> messages = KafkaUtils.createDirectStream (
 
             String.class,
             String.class,
+            String.keyDecoder,
+            String.valueDecoder,
             topic,
             brokerList,
 
